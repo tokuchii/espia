@@ -5,8 +5,24 @@ export default function ProjectsSection() {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <section className="py-12 border-t border-white/10">
+    <section className="py-12 border-t border-border">
       <SectionHeader number="02" title="projects" allLink="/projects" />
+
+      {/* Rank Badges Section */}
+      <div className="mb-8">
+        <div className="flex flex-wrap gap-4">
+          {featuredProjects.flatMap(project =>
+            project.rankBadges?.map((badge, index) => (
+              <span
+                key={`${project.name}-${index}`}
+                className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-alt text-white/60"
+              >
+                {badge}
+              </span>
+            )) || []
+          )}
+        </div>
+      </div>
 
       <div className="grid gap-6">
         {featuredProjects.map((project) => (
@@ -15,7 +31,7 @@ export default function ProjectsSection() {
               {project.badges?.map((badge) => (
                 <span
                   key={badge}
-                  className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-white/60"
+                  className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-alt text-white/60"
                 >
                   {badge}
                 </span>
@@ -23,7 +39,12 @@ export default function ProjectsSection() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-lg bg-white/10 shrink-0" />
+              <div className="w-10 h-10 rounded-lg bg-surface-alt shrink-0">
+                {/* Project icon would go here */}
+                <div className="w-full h-full flex items-center justify-center text-white/40 text-sm">
+                  {project.name.charAt(0)}
+                </div>
+              </div>
 
               <div className="flex-1 min-w-0">
                 <h3 className="text-white mb-1">{project.name}</h3>

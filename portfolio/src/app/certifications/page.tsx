@@ -13,23 +13,17 @@ export default function CertificationsPage() {
     <div className="py-12">
       <SectionHeader number="04" title="certifications" />
 
-      <div className="grid gap-4">
+      <div className="grid gap-6">
         {certifications.map((cert) => (
-          <div
-            key={cert.name}
-            className="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/10"
-          >
-            <div className="w-12 h-12 rounded bg-white/10 shrink-0" />
+          <div key={cert.name} className="flex items-center gap-4 p-4 rounded-lg bg-surface-alt border border-border">
+            <div className="w-12 h-12 rounded bg-surface shrink-0 flex items-center justify-center">
+              <span className="text-xs text-white/40">{cert.name.charAt(0)}</span>
+            </div>
             <div className="flex-1 min-w-0">
               <h2 className="text-white mb-1">{cert.name}</h2>
-              <p className="text-sm text-white/50">{cert.issuer}</p>
+              <p className="text-sm text-muted">{cert.issuer}</p>
             </div>
-            <a
-              href={cert.verifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-white/50 hover:text-white transition-colors shrink-0"
-            >
+            <a href={cert.verifyUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 hover:text-white transition-colors shrink-0">
               Verify →
             </a>
           </div>

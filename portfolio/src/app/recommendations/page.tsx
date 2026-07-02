@@ -15,17 +15,17 @@ export default function RecommendationsPage() {
 
       <div className="grid gap-8">
         {testimonials.map((testimonial) => (
-          <div key={testimonial.name} className="py-6 border-b border-white/10 last:border-0">
-            <blockquote className="text-white/70 mb-6 text-lg leading-relaxed">
+          <div key={testimonial.name} className="border-b border-border pb-6 last:border-0">
+            <blockquote className="text-white/70 mb-4 text-base leading-relaxed">
               &ldquo;{testimonial.quote}&rdquo;
             </blockquote>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-sm text-white/60">
+              <div className="w-10 h-10 rounded-full bg-surface-alt flex items-center justify-center text-xs text-white/60">
                 {testimonial.initials}
               </div>
               <div>
                 <div className="text-white">{testimonial.name}</div>
-                <div className="text-sm text-white/50">{testimonial.title}</div>
+                <div className="text-sm text-muted">{testimonial.title}</div>
               </div>
             </div>
           </div>

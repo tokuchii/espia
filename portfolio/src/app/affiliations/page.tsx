@@ -17,11 +17,11 @@ export default function AffiliationsPage() {
         {affiliations.map((aff) => (
           <div
             key={aff.organization}
-            className="flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-white/5 text-white/60 border border-white/10"
+            className="flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-surface-alt text-white/60 border border-border"
           >
             <span>{aff.organization}</span>
             <span className="text-white/30">·</span>
-            <span className="text-white/40">{aff.role}</span>
+            <span className="text-muted">{aff.role}</span>
           </div>
         ))}
       </div>

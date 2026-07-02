@@ -13,14 +13,30 @@ export default function ProjectsPage() {
     <div className="py-12">
       <SectionHeader number="02" title="projects" />
 
+      {/* Rank Badges Section */}
+      <div className="mb-8">
+        <div className="flex flex-wrap gap-4">
+          {projects.flatMap(project =>
+            project.rankBadges?.map((badge, index) => (
+              <span
+                key={`${project.name}-${index}`}
+                className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-alt text-white/60"
+              >
+                {badge}
+              </span>
+            )) || []
+          )}
+        </div>
+      </div>
+
       <div className="grid gap-8">
         {projects.map((project) => (
-          <div key={project.name} className="group border-b border-white/10 pb-8 last:border-0">
+          <div key={project.name} className="group border-b border-border pb-8 last:border-0">
             <div className="flex flex-wrap gap-2 mb-3">
               {project.badges?.map((badge) => (
                 <span
                   key={badge}
-                  className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-white/60"
+                  className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-alt text-white/60"
                 >
                   {badge}
                 </span>
@@ -28,8 +44,7 @@ export default function ProjectsPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-white/10 shrink-0" />
-
+              <div className="w-12 h-12 rounded-lg bg-surface-alt shrink-0" />
               <div className="flex-1 min-w-0">
                 <h2 className="text-lg text-white mb-1">{project.name}</h2>
                 <p className="text-sm text-white/50 mb-4">{project.description}</p>

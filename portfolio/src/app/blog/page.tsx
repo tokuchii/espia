@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { blogPosts } from "@/data/blog";
 import SectionHeader from "@/components/SectionHeader";
 import FooterSection from "@/components/FooterSection";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog — Your Name",
@@ -9,13 +10,24 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  // Get 3 most recent posts (assuming they're already sorted by date)
+  const recentPosts = blogPosts.slice(0, 3);
+
   return (
     <div className="py-12">
-      <SectionHeader number="01" title="blog" />
+      <div className="flex items-baseline justify-between mb-6">
+        <SectionHeader number="01" title="blog" />
+        <Link
+          href="/blog"
+          className="text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors"
+        >
+          all posts →
+        </Link>
+      </div>
 
       <div className="space-y-6">
-        {blogPosts.map((post) => (
-          <article key={post.slug} className="group border-b border-white/10 pb-6 last:border-0">
+        {recentPosts.map((post) => (
+          <article key={post.slug} className="group border-b border-border pb-6 last:border-0">
             <div className="flex items-baseline justify-between gap-4">
               <div className="flex-1">
                 <h2 className="text-xl text-white group-hover:underline mb-2">

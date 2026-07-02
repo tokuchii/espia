@@ -15,5 +15,5 @@ export const achievements: Achievement[] = [
 
 export const founded = [
   { name: "DevHack Collective", url: "https://devhack.io" },
-  { name: "AI Open Source Guild", url: "https://aios guild.dev" },
+  { name: "AI Open Source Guild", url: "https://aiosguild.dev" },
 ];

@@ -2,10 +2,10 @@ import { founded, achievements } from "@/data/achievements";
 
 export default function FooterSection() {
   return (
-    <footer className="py-12 border-t border-white/10">
+    <footer className="py-12 border-t border-border">
       {founded.length > 0 && (
         <div className="mb-10">
-          <h3 className="text-sm text-white/60 uppercase tracking-wider mb-4">Founded</h3>
+          <h3 className="text-sm text-muted uppercase tracking-wider mb-4">Founded</h3>
           <div className="flex flex-wrap gap-4">
             {founded.map((item) => (
               <a
@@ -23,7 +23,7 @@ export default function FooterSection() {
       )}
 
       <div>
-        <h3 className="text-sm text-white/60 uppercase tracking-wider mb-4">Achievements</h3>
+        <h3 className="text-sm text-muted uppercase tracking-wider mb-4">Achievements</h3>
         <div className="space-y-2">
           {achievements.map((achievement) => (
             <div key={achievement.event} className="flex items-baseline gap-4">
@@ -46,7 +46,7 @@ export default function FooterSection() {
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/30">
+      <div className="mt-12 pt-8 border-t border-border text-center text-xs text-muted">
         © {new Date().getFullYear()} Your Name. All rights reserved.
       </div>
     </footer>
